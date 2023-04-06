@@ -97,7 +97,7 @@ class _loginPageState extends State<loginPage> {
   void _handleClickLogin(){
     var idcheck = _idController.text;
     var passwordcheck = _passwordController.text;
-    if(idcheck == '113' || passwordcheck == '1234'){
+    if(idcheck == '113' && passwordcheck == '1234'){
       /*setState(() {
         _feedbacktext = 'hi boi';
       });
@@ -108,13 +108,22 @@ class _loginPageState extends State<loginPage> {
       );
       _showSnackBar(
         'Hi, $idcheck',
-        durationSeconds: 10,
+        durationSeconds: 2,
         action: SnackBarAction(
           label: 'Close',
           onPressed: () {},
         ),
       );
-
+    }
+    else{
+      _showSnackBar(
+        'รหัสประจำตัวหรือรหัสผ่านผิด',
+        durationSeconds: 2,
+        action: SnackBarAction(
+          label: 'Close',
+          onPressed: () {},
+        ),
+      );
     }
 
   }

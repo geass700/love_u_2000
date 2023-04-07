@@ -1,6 +1,8 @@
 //ignore_for_file: prefer_const_constructors, camel_case_types
 import 'package:flutter/material.dart';
-import 'package:love_u_2000/pages/manage_page.dart';
+import 'package:love_u_2000/pages/admin_pages/registered_list.dart';
+import 'package:love_u_2000/pages/user_pages/manage_page.dart';
+import 'package:love_u_2000/pages/user_pages/register_page.dart';
 
 class loginPage extends StatefulWidget {
   const loginPage({Key? key}) : super(key: key);
@@ -41,7 +43,7 @@ class _loginPageState extends State<loginPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Image.asset('assets/hat.jpg', height: 140.0),
+                  Image.asset('assets/hat.jpg', height: 150.0),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
                     child: TextFormField(
@@ -84,14 +86,31 @@ class _loginPageState extends State<loginPage> {
                       ),
                     ),
                   ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(16.0, 48.0, 16.0, 48.0),
+                    child: ElevatedButton(
+                      onPressed: _handleClickRegister,
+                      child: const Padding(
+                        padding: EdgeInsets.all(12.0),
+                        child: Text('REGISTER'),
+                      ),
+                    ),
+                  ),
                   /*Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Center(child: Text(_feedbacktext)),
                   ),*/
                 ],
-              ))
+              )
+          )
         ],
       ),
+    );
+  }
+  void _handleClickRegister(){
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => registerPage()),
     );
   }
   void _handleClickLogin(){
@@ -107,7 +126,21 @@ class _loginPageState extends State<loginPage> {
         MaterialPageRoute(builder: (context) => managePage()),
       );
       _showSnackBar(
-        'Hi, $idcheck',
+        'Hi ',
+        durationSeconds: 2,
+        action: SnackBarAction(
+          label: 'Close',
+          onPressed: () {},
+        ),
+      );
+    }
+    else if(idcheck == '113admin' && passwordcheck == '1234'){
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => listPage()),
+      );
+      _showSnackBar(
+        'Hi Admin',
         durationSeconds: 2,
         action: SnackBarAction(
           label: 'Close',

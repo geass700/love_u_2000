@@ -1,6 +1,7 @@
 //ignore_for_file: prefer_const_constructors, camel_case_types
 import 'package:flutter/material.dart';
 import 'package:love_u_2000/login/login_page.dart';
+import 'package:love_u_2000/pages/user_pages/edit_page.dart';
 
 class managePage extends StatefulWidget {
   const managePage({Key? key}) : super(key: key);
@@ -11,49 +12,12 @@ class managePage extends StatefulWidget {
 
 class _managePageState extends State<managePage> {
 
-  int _selectedIndex = 0;
-  // Menu items in the drawer
-   final List<Widget> _drawerItems = [
-    ListTile(
-      leading: const Icon(Icons.exit_to_app),
-      title: const Text('ออกจากระบบ'),
-      onTap: () {
-
-      },
-    ),
-    ListTile(
-      leading: const Icon(Icons.edit_note_outlined),
-      title: const Text('แก้ไขข้อมูล'),
-      onTap: () {},
-    ),
-
-  ];
-
-  // Widget displayed in the main content area
- /* Widget _bodyWidget() {
-    switch (_selectedIndex) {
-      case 0:
-        return const Center(
-          child: Text('ออกจากระบบ'),
-        );
-      case 1:
-        return const Center(
-          child: Text('แก้ไขข้อมูล'),
-        );
-
-      default:
-        return const Center(
-          child: Text('Error'),
-        );
-    }
-  }
-*/
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.brown,
-        title: Text('เว่ย เส้าเทียน',style: TextStyle(color: Colors.white),),
+        title: Text('ข้อมูลที่ลงทะเบียน',style: TextStyle(color: Colors.white),),
       ),
       drawer: Drawer(
         child: ListView(
@@ -89,7 +53,12 @@ class _managePageState extends State<managePage> {
             ListTile(
               leading: const Icon(Icons.edit_note_outlined),
               title: const Text('แก้ไขข้อมูล'),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => editPage()),
+                );
+              },
             ),
           ],
         ),
@@ -100,7 +69,7 @@ class _managePageState extends State<managePage> {
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text('นาย เว่ย  เส่าเทียน'),
+            child: Text('นาย เว่ย  เซ่าเทียน'),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),

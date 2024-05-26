@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:love_u_2000/login/login_page.dart';
+import 'package:love_u_2000/main/main_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const loginPage(),
+      home: const MainPage(),
     );
   }
 }
